@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// protobuf 語法版本
+
+message RequestType {// 定義類型
+    string name = 1; // 類型 變數名稱 = 流水號;
+    string content = 2;
+}
+
+message ResponseType {// 定義類型
+    string sentence = 1;
+}
+
+
+// 定義 service
+service Test {
+    // 可多組
+    // 連線方式 使用的函數名稱(type 輸入類型) returns ((type) 回傳類型){} // type預設為 simple
+    rpc SayHello0(RequestType) returns (ResponseType) {}  // Unary
+    rpc SayHello1(stream RequestType) returns (ResponseType) {} // Client Streaming
+    rpc SayHello2(RequestType) returns (stream ResponseType) {} // Server Streaming
+    rpc SayHello3(stream RequestType) returns (stream ResponseType) {} // Bi Directional Streaming
+}
