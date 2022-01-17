@@ -5,7 +5,7 @@ from typing import Generator
 
 host = grpc.insecure_channel("localhost:50051")
 
-client = Hello_pb2_grpc.TestStub(host)
+client = Hello_pb2_grpc.TestStub(host) ## TestStub 可理解成 打包 與 解包工具 , Test這邊是指 protobuf schema定義的service名稱
 
 request = Hello_pb2.RequestType()
 

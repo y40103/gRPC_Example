@@ -12,7 +12,7 @@ class HelloMethod(Hello_pb2_grpc.TestServicer):
     """ Service中所需要用到的所有方法 """
 
     def SayHello0(self, request: Hello_pb2.RequestType, context) -> Hello_pb2.ResponseType:
-        ## from_request 實際上是 protobuf通訊用的 RequestType的instance,
+        ## request 實際上是 protobuf 的RequestType instance,
         ## 它具有當初 protobuf 文檔所定義的RequestType屬性 , 可理解成 request 進來的參數
 
         res = Hello_pb2.ResponseType()
@@ -51,7 +51,7 @@ class HelloMethod(Hello_pb2_grpc.TestServicer):
 
 def gRPC_server():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=4))  ## create server instance
-    Hello_pb2_grpc.add_TestServicer_to_server(HelloMethod(), server)  ## add method to server
+    Hello_pb2_grpc.add_TestServicer_to_server(HelloMethod(), server)  ## add stub to server , deserialize > handle > serialize
     server.add_insecure_port("0.0.0.0:50051")  ## add host
     server.start()
     try:
