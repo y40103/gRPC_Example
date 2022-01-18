@@ -7,6 +7,7 @@ import Hello_pb2 as Hello__pb2
 
 class TestStub(object):
     """定義 service
+    可多組
     """
 
     def __init__(self, channel):
@@ -15,6 +16,36 @@ class TestStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.TypeSimple = channel.unary_unary(
+                '/Test/TypeSimple',
+                request_serializer=Hello__pb2.SimpleType.SerializeToString,
+                response_deserializer=Hello__pb2.SimpleType.FromString,
+                )
+        self.TypeEnum = channel.unary_unary(
+                '/Test/TypeEnum',
+                request_serializer=Hello__pb2.Enumeration.SerializeToString,
+                response_deserializer=Hello__pb2.Enumeration.FromString,
+                )
+        self.TypeList = channel.unary_unary(
+                '/Test/TypeList',
+                request_serializer=Hello__pb2.ListType.SerializeToString,
+                response_deserializer=Hello__pb2.ListType.FromString,
+                )
+        self.TypeNested = channel.unary_unary(
+                '/Test/TypeNested',
+                request_serializer=Hello__pb2.NestedType.SerializeToString,
+                response_deserializer=Hello__pb2.NestedType.FromString,
+                )
+        self.TypeMap = channel.unary_unary(
+                '/Test/TypeMap',
+                request_serializer=Hello__pb2.MapType.SerializeToString,
+                response_deserializer=Hello__pb2.MapType.FromString,
+                )
+        self.TypeOneof = channel.unary_unary(
+                '/Test/TypeOneof',
+                request_serializer=Hello__pb2.OneofType.SerializeToString,
+                response_deserializer=Hello__pb2.OneofType.FromString,
+                )
         self.SayHello0 = channel.unary_unary(
                 '/Test/SayHello0',
                 request_serializer=Hello__pb2.RequestType.SerializeToString,
@@ -39,10 +70,48 @@ class TestStub(object):
 
 class TestServicer(object):
     """定義 service
+    可多組
     """
 
+    def TypeSimple(self, request, context):
+        """測試定義類型 , 這邊皆定義 輸入=輸出
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TypeEnum(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TypeList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TypeNested(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TypeMap(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TypeOneof(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SayHello0(self, request, context):
-        """可多組
+        """測試連線方式 使用的函數名稱(type 輸入類型) returns ((type) 回傳類型){} // type預設為 simple
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -69,6 +138,36 @@ class TestServicer(object):
 
 def add_TestServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'TypeSimple': grpc.unary_unary_rpc_method_handler(
+                    servicer.TypeSimple,
+                    request_deserializer=Hello__pb2.SimpleType.FromString,
+                    response_serializer=Hello__pb2.SimpleType.SerializeToString,
+            ),
+            'TypeEnum': grpc.unary_unary_rpc_method_handler(
+                    servicer.TypeEnum,
+                    request_deserializer=Hello__pb2.Enumeration.FromString,
+                    response_serializer=Hello__pb2.Enumeration.SerializeToString,
+            ),
+            'TypeList': grpc.unary_unary_rpc_method_handler(
+                    servicer.TypeList,
+                    request_deserializer=Hello__pb2.ListType.FromString,
+                    response_serializer=Hello__pb2.ListType.SerializeToString,
+            ),
+            'TypeNested': grpc.unary_unary_rpc_method_handler(
+                    servicer.TypeNested,
+                    request_deserializer=Hello__pb2.NestedType.FromString,
+                    response_serializer=Hello__pb2.NestedType.SerializeToString,
+            ),
+            'TypeMap': grpc.unary_unary_rpc_method_handler(
+                    servicer.TypeMap,
+                    request_deserializer=Hello__pb2.MapType.FromString,
+                    response_serializer=Hello__pb2.MapType.SerializeToString,
+            ),
+            'TypeOneof': grpc.unary_unary_rpc_method_handler(
+                    servicer.TypeOneof,
+                    request_deserializer=Hello__pb2.OneofType.FromString,
+                    response_serializer=Hello__pb2.OneofType.SerializeToString,
+            ),
             'SayHello0': grpc.unary_unary_rpc_method_handler(
                     servicer.SayHello0,
                     request_deserializer=Hello__pb2.RequestType.FromString,
@@ -98,7 +197,110 @@ def add_TestServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class Test(object):
     """定義 service
+    可多組
     """
+
+    @staticmethod
+    def TypeSimple(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Test/TypeSimple',
+            Hello__pb2.SimpleType.SerializeToString,
+            Hello__pb2.SimpleType.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TypeEnum(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Test/TypeEnum',
+            Hello__pb2.Enumeration.SerializeToString,
+            Hello__pb2.Enumeration.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TypeList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Test/TypeList',
+            Hello__pb2.ListType.SerializeToString,
+            Hello__pb2.ListType.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TypeNested(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Test/TypeNested',
+            Hello__pb2.NestedType.SerializeToString,
+            Hello__pb2.NestedType.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TypeMap(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Test/TypeMap',
+            Hello__pb2.MapType.SerializeToString,
+            Hello__pb2.MapType.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TypeOneof(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Test/TypeOneof',
+            Hello__pb2.OneofType.SerializeToString,
+            Hello__pb2.OneofType.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SayHello0(request,

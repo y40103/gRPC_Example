@@ -1,23 +1,87 @@
+// protobuf 語法版本
 syntax = "proto3";
 
-// protobuf 語法版本
 
-message RequestType {// 定義類型
-    string name = 1; // 類型 變數名稱 = 流水號;
+// python 觀點 message 可理解成物件 而類型定義 可理解為 該類型屬性
+// message 可理解為定義類型
+// syntax: (Optional) 類型 變數名稱 = 流水號;
+
+
+// 基礎類型測試
+message SimpleType {
+    int32 int_num = 1;                                // int_num -> int
+    float float_num = 2;                              // float_num -> float
+    string description = 3;                           // description -> str
+    optional bool bool_flag = 4;                               // bool_flag -> bool
+}
+
+message Enumeration{
+
+        enum pick_one {
+            CHOICE0 = 0;   // 枚舉 必須從0開始
+            CHOICE1 = 1;
+            CHOICE2 = 2;
+            }
+
+}
+
+message ListType{
+    repeated int32 int_list = 1;                     // int_list -> 類似 python List[int]
+}
+
+message NestedType{
+    message RequestType {// 定義類型                  // RequestType.name -> str
+    string name = 1; // 類型 變數名稱 = 流水號;         // RequestType.content -> str
+    string content = 2;
+    }
+}
+
+message MapType {
+    map<string, int32> map1 = 1;                    // map1 -> 類似 python map
+    map<string, int32> map2 = 2;
+}
+
+message OneofType {                                 // 只有最後一個賦值對象有效 , 只能存在一個
+    oneof one {
+        string text = 1;
+        int32 num = 2;
+    }
+}
+
+
+
+
+// 連線測試用
+message RequestType {
+    string name = 1;
     string content = 2;
 }
 
-message ResponseType {// 定義類型
+message ResponseType {
     string sentence = 1;
 }
+
+
 
 
 // 定義 service
 service Test {
     // 可多組
-    // 連線方式 使用的函數名稱(type 輸入類型) returns ((type) 回傳類型){} // type預設為 simple
+
+    // 測試定義類型 , 這邊皆定義 輸入=輸出
+    rpc TypeSimple(SimpleType) returns (SimpleType) {}
+    rpc TypeEnum(Enumeration) returns (Enumeration) {}
+    rpc TypeList(ListType) returns (ListType) {}
+    rpc TypeNested(NestedType) returns (NestedType) {}
+    rpc TypeMap(MapType) returns (MapType) {}
+    rpc TypeOneof(OneofType) returns (OneofType){}
+
+
+    // 測試連線方式 使用的函數名稱(type 輸入類型) returns ((type) 回傳類型){} // type預設為 simple
     rpc SayHello0(RequestType) returns (ResponseType) {}  // Unary
     rpc SayHello1(stream RequestType) returns (ResponseType) {} // Client Streaming
     rpc SayHello2(RequestType) returns (stream ResponseType) {} // Server Streaming
     rpc SayHello3(stream RequestType) returns (stream ResponseType) {} // Bi Directional Streaming
+
+
 }
