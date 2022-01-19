@@ -30,7 +30,7 @@ gRPC_Example/
 ```
 
 
-1.  install python gRpc package
+1.  install python gRPC package
 
 ```bash
 pip install grpcio grpcio-tools
