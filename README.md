@@ -6,6 +6,18 @@ gRPC 隨筆
 
 [Notion](https://handy-lady-8da.notion.site/gRPC-55cde33b0e16430db6b587d3419fbcb5)
 
+整理整理著 把 gRPC 所有連線形式與感覺比較常用的資料類型 用簡單的範例實做一次
+
+內容累積下來感覺也不少 變得有點雜亂而不易閱讀
+
+可以優先看QuickStart
+
+裡面用一個最簡單的範例實現gRPC
+
+可從該範例理解整個gRPC的架構
+
+其他只是依需求 抽換需要的資料類型, 函數內容, 連線方式
+
 Python
 ======
 
