@@ -22,6 +22,11 @@ gRPC_Example/
     ├── Hello_pb2.py
     ├── Hello.proto
     └── Server.py
+    └───Python_Protobuf_Type
+        ├── Hello_pb2_grpc.py
+        ├── Hello_pb2.py
+        └── protobuf_type.py
+
 ```
 
 
@@ -54,4 +59,9 @@ python Server.py
   python Client_SS.py       // Server Streaming
   python Client_BDS.py      // Bi Directional Streaming
   ```
+  
+- convert protobuf type to json and map
+ ```bash
+ python protobuf_type.py
+ ```
 
