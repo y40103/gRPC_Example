@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+// 定義類型
+
+message RequestForSum {
+    float num1 = 1;
+    float num2 = 2;
+}
+
+message ResponseForSum {
+    float sum_num = 1;
+}
+
+
+
+
+
+service MyService {
+    rpc Sum(RequestForSum) returns (ResponseForSum) {}  // 一個求和函數 , 輸入為兩個浮點數 , 輸出為一個浮點數
+}
+
+
