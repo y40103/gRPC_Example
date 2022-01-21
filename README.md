@@ -106,6 +106,7 @@ gRPC_Example/
 
 1. Init
  - set project directory and package
+ 
     gRPC_Example/Go
     ```
     go mod init "Hello"
