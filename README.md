@@ -49,7 +49,7 @@ pip install grpcio grpcio-tools
 ```
 
 
-2. activate gRPC Server
+2. run gRPC Server
 
 ```bash
 python Server.py
@@ -81,9 +81,59 @@ Golang
 ======
 增加Go基本連線模式測試, 與python架構/功能
 
-可實測
+```bash
+gRPC_Example/
+├── Go
+    ├── go.mod
+    ├── go.sum
+    └── Hello
+        ├── Client_BDS
+        │   └── Client_BDS.go
+        ├── Client_CS
+        │   └── Client_CS.go
+        ├── Client_SS
+        │   └── Clinet_SS.go
+        ├── Client_U
+        │   └── Client_U.go
+        ├── grpc_server
+        │   └── main.go
+        └── Hello
+            ├── Hello_grpc.pb.go
+            ├── Hello.pb.go
+            └── Hello.proto
 
-- go server <> python client
-- python server <> go client
+```
+
+1. Init
+ - set project directory and package
+    gRPC_Example/Go
+    ```
+    go mod init "Hello"
+    ```
+    ```bash
+    go get google.golang.org/grpc
+      ```
+
+
+
+
+2. test go server <> python client
+
+  - run Go server
+
+      gRPC_Example/Go/Hello/grpc_server
+      ```bash
+      go run main.go
+
+      ```
+
+  - run server
+
+      gRPC_Example/Python
+      ```bash
+      python Client_BDS.py
+      ```
+
+
 
 
