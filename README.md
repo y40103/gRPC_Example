@@ -77,3 +77,13 @@ python Server.py
  python protobuf_type.py
  ```
 
+Golang
+======
+增加Go基本連線模式測試, 與python架構/功能
+
+可實測
+
+go server <> python client
+python server <> go client
+
+
