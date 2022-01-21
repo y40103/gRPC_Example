@@ -83,7 +83,7 @@ Golang
 
 可實測
 
-go server <> python client
-python server <> go client
+- go server <> python client
+- python server <> go client
 
 
