@@ -17,52 +17,52 @@ class TestStub(object):
             channel: A grpc.Channel.
         """
         self.TypeSimple = channel.unary_unary(
-                '/Test/TypeSimple',
+                '/Hello.Test/TypeSimple',
                 request_serializer=Hello__pb2.SimpleType.SerializeToString,
                 response_deserializer=Hello__pb2.SimpleType.FromString,
                 )
         self.TypeEnum = channel.unary_unary(
-                '/Test/TypeEnum',
+                '/Hello.Test/TypeEnum',
                 request_serializer=Hello__pb2.Enumeration.SerializeToString,
                 response_deserializer=Hello__pb2.Enumeration.FromString,
                 )
         self.TypeList = channel.unary_unary(
-                '/Test/TypeList',
+                '/Hello.Test/TypeList',
                 request_serializer=Hello__pb2.ListType.SerializeToString,
                 response_deserializer=Hello__pb2.ListType.FromString,
                 )
         self.TypeNested = channel.unary_unary(
-                '/Test/TypeNested',
+                '/Hello.Test/TypeNested',
                 request_serializer=Hello__pb2.NestedType.SerializeToString,
                 response_deserializer=Hello__pb2.NestedType.FromString,
                 )
         self.TypeMap = channel.unary_unary(
-                '/Test/TypeMap',
+                '/Hello.Test/TypeMap',
                 request_serializer=Hello__pb2.MapType.SerializeToString,
                 response_deserializer=Hello__pb2.MapType.FromString,
                 )
         self.TypeOneof = channel.unary_unary(
-                '/Test/TypeOneof',
+                '/Hello.Test/TypeOneof',
                 request_serializer=Hello__pb2.OneofType.SerializeToString,
                 response_deserializer=Hello__pb2.OneofType.FromString,
                 )
         self.SayHello0 = channel.unary_unary(
-                '/Test/SayHello0',
+                '/Hello.Test/SayHello0',
                 request_serializer=Hello__pb2.RequestType.SerializeToString,
                 response_deserializer=Hello__pb2.ResponseType.FromString,
                 )
         self.SayHello1 = channel.stream_unary(
-                '/Test/SayHello1',
+                '/Hello.Test/SayHello1',
                 request_serializer=Hello__pb2.RequestType.SerializeToString,
                 response_deserializer=Hello__pb2.ResponseType.FromString,
                 )
         self.SayHello2 = channel.unary_stream(
-                '/Test/SayHello2',
+                '/Hello.Test/SayHello2',
                 request_serializer=Hello__pb2.RequestType.SerializeToString,
                 response_deserializer=Hello__pb2.ResponseType.FromString,
                 )
         self.SayHello3 = channel.stream_stream(
-                '/Test/SayHello3',
+                '/Hello.Test/SayHello3',
                 request_serializer=Hello__pb2.RequestType.SerializeToString,
                 response_deserializer=Hello__pb2.ResponseType.FromString,
                 )
@@ -190,7 +190,7 @@ def add_TestServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'Test', rpc_method_handlers)
+            'Hello.Test', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -211,7 +211,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Test/TypeSimple',
+        return grpc.experimental.unary_unary(request, target, '/Hello.Test/TypeSimple',
             Hello__pb2.SimpleType.SerializeToString,
             Hello__pb2.SimpleType.FromString,
             options, channel_credentials,
@@ -228,7 +228,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Test/TypeEnum',
+        return grpc.experimental.unary_unary(request, target, '/Hello.Test/TypeEnum',
             Hello__pb2.Enumeration.SerializeToString,
             Hello__pb2.Enumeration.FromString,
             options, channel_credentials,
@@ -245,7 +245,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Test/TypeList',
+        return grpc.experimental.unary_unary(request, target, '/Hello.Test/TypeList',
             Hello__pb2.ListType.SerializeToString,
             Hello__pb2.ListType.FromString,
             options, channel_credentials,
@@ -262,7 +262,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Test/TypeNested',
+        return grpc.experimental.unary_unary(request, target, '/Hello.Test/TypeNested',
             Hello__pb2.NestedType.SerializeToString,
             Hello__pb2.NestedType.FromString,
             options, channel_credentials,
@@ -279,7 +279,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Test/TypeMap',
+        return grpc.experimental.unary_unary(request, target, '/Hello.Test/TypeMap',
             Hello__pb2.MapType.SerializeToString,
             Hello__pb2.MapType.FromString,
             options, channel_credentials,
@@ -296,7 +296,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Test/TypeOneof',
+        return grpc.experimental.unary_unary(request, target, '/Hello.Test/TypeOneof',
             Hello__pb2.OneofType.SerializeToString,
             Hello__pb2.OneofType.FromString,
             options, channel_credentials,
@@ -313,7 +313,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Test/SayHello0',
+        return grpc.experimental.unary_unary(request, target, '/Hello.Test/SayHello0',
             Hello__pb2.RequestType.SerializeToString,
             Hello__pb2.ResponseType.FromString,
             options, channel_credentials,
@@ -330,7 +330,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/Test/SayHello1',
+        return grpc.experimental.stream_unary(request_iterator, target, '/Hello.Test/SayHello1',
             Hello__pb2.RequestType.SerializeToString,
             Hello__pb2.ResponseType.FromString,
             options, channel_credentials,
@@ -347,7 +347,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/Test/SayHello2',
+        return grpc.experimental.unary_stream(request, target, '/Hello.Test/SayHello2',
             Hello__pb2.RequestType.SerializeToString,
             Hello__pb2.ResponseType.FromString,
             options, channel_credentials,
@@ -364,7 +364,7 @@ class Test(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/Test/SayHello3',
+        return grpc.experimental.stream_stream(request_iterator, target, '/Hello.Test/SayHello3',
             Hello__pb2.RequestType.SerializeToString,
             Hello__pb2.ResponseType.FromString,
             options, channel_credentials,

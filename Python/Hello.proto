@@ -1,5 +1,7 @@
 // protobuf 語法版本
 syntax = "proto3";
+package Hello;
+
 
 
 // python 觀點 message 可理解成物件 而類型定義 可理解為 該類型屬性

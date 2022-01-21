@@ -15,18 +15,18 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='Hello.proto',
-  package='',
+  package='Hello',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bHello.proto\"k\n\nSimpleType\x12\x0f\n\x07int_num\x18\x01 \x01(\x05\x12\x11\n\tfloat_num\x18\x02 \x01(\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x16\n\tbool_flag\x18\x04 \x01(\x08H\x00\x88\x01\x01\x42\x0c\n\n_bool_flag\"@\n\x0b\x45numeration\"1\n\x08pick_one\x12\x0b\n\x07\x43HOICE0\x10\x00\x12\x0b\n\x07\x43HOICE1\x10\x01\x12\x0b\n\x07\x43HOICE2\x10\x02\"\x1c\n\x08ListType\x12\x10\n\x08int_list\x18\x01 \x03(\x05\":\n\nNestedType\x1a,\n\x0bRequestType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\"\xa7\x01\n\x07MapType\x12 \n\x04map1\x18\x01 \x03(\x0b\x32\x12.MapType.Map1Entry\x12 \n\x04map2\x18\x02 \x03(\x0b\x32\x12.MapType.Map2Entry\x1a+\n\tMap1Entry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a+\n\tMap2Entry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"1\n\tOneofType\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12\r\n\x03num\x18\x02 \x01(\x05H\x00\x42\x05\n\x03one\",\n\x0bRequestType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\" \n\x0cResponseType\x12\x10\n\x08sentence\x18\x01 \x01(\t2\xa8\x03\n\x04Test\x12(\n\nTypeSimple\x12\x0b.SimpleType\x1a\x0b.SimpleType\"\x00\x12(\n\x08TypeEnum\x12\x0c.Enumeration\x1a\x0c.Enumeration\"\x00\x12\"\n\x08TypeList\x12\t.ListType\x1a\t.ListType\"\x00\x12(\n\nTypeNested\x12\x0b.NestedType\x1a\x0b.NestedType\"\x00\x12\x1f\n\x07TypeMap\x12\x08.MapType\x1a\x08.MapType\"\x00\x12%\n\tTypeOneof\x12\n.OneofType\x1a\n.OneofType\"\x00\x12*\n\tSayHello0\x12\x0c.RequestType\x1a\r.ResponseType\"\x00\x12,\n\tSayHello1\x12\x0c.RequestType\x1a\r.ResponseType\"\x00(\x01\x12,\n\tSayHello2\x12\x0c.RequestType\x1a\r.ResponseType\"\x00\x30\x01\x12.\n\tSayHello3\x12\x0c.RequestType\x1a\r.ResponseType\"\x00(\x01\x30\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0bHello.proto\x12\x05Hello\"k\n\nSimpleType\x12\x0f\n\x07int_num\x18\x01 \x01(\x05\x12\x11\n\tfloat_num\x18\x02 \x01(\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x16\n\tbool_flag\x18\x04 \x01(\x08H\x00\x88\x01\x01\x42\x0c\n\n_bool_flag\"@\n\x0b\x45numeration\"1\n\x08pick_one\x12\x0b\n\x07\x43HOICE0\x10\x00\x12\x0b\n\x07\x43HOICE1\x10\x01\x12\x0b\n\x07\x43HOICE2\x10\x02\"\x1c\n\x08ListType\x12\x10\n\x08int_list\x18\x01 \x03(\x05\":\n\nNestedType\x1a,\n\x0bRequestType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\"\xb3\x01\n\x07MapType\x12&\n\x04map1\x18\x01 \x03(\x0b\x32\x18.Hello.MapType.Map1Entry\x12&\n\x04map2\x18\x02 \x03(\x0b\x32\x18.Hello.MapType.Map2Entry\x1a+\n\tMap1Entry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a+\n\tMap2Entry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"1\n\tOneofType\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12\r\n\x03num\x18\x02 \x01(\x05H\x00\x42\x05\n\x03one\",\n\x0bRequestType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\" \n\x0cResponseType\x12\x10\n\x08sentence\x18\x01 \x01(\t2\xa0\x04\n\x04Test\x12\x34\n\nTypeSimple\x12\x11.Hello.SimpleType\x1a\x11.Hello.SimpleType\"\x00\x12\x34\n\x08TypeEnum\x12\x12.Hello.Enumeration\x1a\x12.Hello.Enumeration\"\x00\x12.\n\x08TypeList\x12\x0f.Hello.ListType\x1a\x0f.Hello.ListType\"\x00\x12\x34\n\nTypeNested\x12\x11.Hello.NestedType\x1a\x11.Hello.NestedType\"\x00\x12+\n\x07TypeMap\x12\x0e.Hello.MapType\x1a\x0e.Hello.MapType\"\x00\x12\x31\n\tTypeOneof\x12\x10.Hello.OneofType\x1a\x10.Hello.OneofType\"\x00\x12\x36\n\tSayHello0\x12\x12.Hello.RequestType\x1a\x13.Hello.ResponseType\"\x00\x12\x38\n\tSayHello1\x12\x12.Hello.RequestType\x1a\x13.Hello.ResponseType\"\x00(\x01\x12\x38\n\tSayHello2\x12\x12.Hello.RequestType\x1a\x13.Hello.ResponseType\"\x00\x30\x01\x12:\n\tSayHello3\x12\x12.Hello.RequestType\x1a\x13.Hello.ResponseType\"\x00(\x01\x30\x01\x62\x06proto3'
 )
 
 
 
 _ENUMERATION_PICK_ONE = _descriptor.EnumDescriptor(
   name='pick_one',
-  full_name='Enumeration.pick_one',
+  full_name='Hello.Enumeration.pick_one',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -49,43 +49,43 @@ _ENUMERATION_PICK_ONE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=139,
-  serialized_end=188,
+  serialized_start=146,
+  serialized_end=195,
 )
 _sym_db.RegisterEnumDescriptor(_ENUMERATION_PICK_ONE)
 
 
 _SIMPLETYPE = _descriptor.Descriptor(
   name='SimpleType',
-  full_name='SimpleType',
+  full_name='Hello.SimpleType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='int_num', full_name='SimpleType.int_num', index=0,
+      name='int_num', full_name='Hello.SimpleType.int_num', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='float_num', full_name='SimpleType.float_num', index=1,
+      name='float_num', full_name='Hello.SimpleType.float_num', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='description', full_name='SimpleType.description', index=2,
+      name='description', full_name='Hello.SimpleType.description', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='bool_flag', full_name='SimpleType.bool_flag', index=3,
+      name='bool_flag', full_name='Hello.SimpleType.bool_flag', index=3,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -103,19 +103,19 @@ _SIMPLETYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='_bool_flag', full_name='SimpleType._bool_flag',
+      name='_bool_flag', full_name='Hello.SimpleType._bool_flag',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=15,
-  serialized_end=122,
+  serialized_start=22,
+  serialized_end=129,
 )
 
 
 _ENUMERATION = _descriptor.Descriptor(
   name='Enumeration',
-  full_name='Enumeration',
+  full_name='Hello.Enumeration',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -134,21 +134,21 @@ _ENUMERATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=124,
-  serialized_end=188,
+  serialized_start=131,
+  serialized_end=195,
 )
 
 
 _LISTTYPE = _descriptor.Descriptor(
   name='ListType',
-  full_name='ListType',
+  full_name='Hello.ListType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='int_list', full_name='ListType.int_list', index=0,
+      name='int_list', full_name='Hello.ListType.int_list', index=0,
       number=1, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -166,28 +166,28 @@ _LISTTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=190,
-  serialized_end=218,
+  serialized_start=197,
+  serialized_end=225,
 )
 
 
 _NESTEDTYPE_REQUESTTYPE = _descriptor.Descriptor(
   name='RequestType',
-  full_name='NestedType.RequestType',
+  full_name='Hello.NestedType.RequestType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='NestedType.RequestType.name', index=0,
+      name='name', full_name='Hello.NestedType.RequestType.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='content', full_name='NestedType.RequestType.content', index=1,
+      name='content', full_name='Hello.NestedType.RequestType.content', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -205,13 +205,13 @@ _NESTEDTYPE_REQUESTTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=278,
+  serialized_start=241,
+  serialized_end=285,
 )
 
 _NESTEDTYPE = _descriptor.Descriptor(
   name='NestedType',
-  full_name='NestedType',
+  full_name='Hello.NestedType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -229,28 +229,28 @@ _NESTEDTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=220,
-  serialized_end=278,
+  serialized_start=227,
+  serialized_end=285,
 )
 
 
 _MAPTYPE_MAP1ENTRY = _descriptor.Descriptor(
   name='Map1Entry',
-  full_name='MapType.Map1Entry',
+  full_name='Hello.MapType.Map1Entry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='MapType.Map1Entry.key', index=0,
+      name='key', full_name='Hello.MapType.Map1Entry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='value', full_name='MapType.Map1Entry.value', index=1,
+      name='value', full_name='Hello.MapType.Map1Entry.value', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -268,27 +268,27 @@ _MAPTYPE_MAP1ENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=360,
-  serialized_end=403,
+  serialized_start=379,
+  serialized_end=422,
 )
 
 _MAPTYPE_MAP2ENTRY = _descriptor.Descriptor(
   name='Map2Entry',
-  full_name='MapType.Map2Entry',
+  full_name='Hello.MapType.Map2Entry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='MapType.Map2Entry.key', index=0,
+      name='key', full_name='Hello.MapType.Map2Entry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='value', full_name='MapType.Map2Entry.value', index=1,
+      name='value', full_name='Hello.MapType.Map2Entry.value', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -306,27 +306,27 @@ _MAPTYPE_MAP2ENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=405,
-  serialized_end=448,
+  serialized_start=424,
+  serialized_end=467,
 )
 
 _MAPTYPE = _descriptor.Descriptor(
   name='MapType',
-  full_name='MapType',
+  full_name='Hello.MapType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='map1', full_name='MapType.map1', index=0,
+      name='map1', full_name='Hello.MapType.map1', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='map2', full_name='MapType.map2', index=1,
+      name='map2', full_name='Hello.MapType.map2', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -344,28 +344,28 @@ _MAPTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=281,
-  serialized_end=448,
+  serialized_start=288,
+  serialized_end=467,
 )
 
 
 _ONEOFTYPE = _descriptor.Descriptor(
   name='OneofType',
-  full_name='OneofType',
+  full_name='Hello.OneofType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='text', full_name='OneofType.text', index=0,
+      name='text', full_name='Hello.OneofType.text', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='num', full_name='OneofType.num', index=1,
+      name='num', full_name='Hello.OneofType.num', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -383,33 +383,33 @@ _ONEOFTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='one', full_name='OneofType.one',
+      name='one', full_name='Hello.OneofType.one',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=450,
-  serialized_end=499,
+  serialized_start=469,
+  serialized_end=518,
 )
 
 
 _REQUESTTYPE = _descriptor.Descriptor(
   name='RequestType',
-  full_name='RequestType',
+  full_name='Hello.RequestType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='RequestType.name', index=0,
+      name='name', full_name='Hello.RequestType.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='content', full_name='RequestType.content', index=1,
+      name='content', full_name='Hello.RequestType.content', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -427,21 +427,21 @@ _REQUESTTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=278,
+  serialized_start=241,
+  serialized_end=285,
 )
 
 
 _RESPONSETYPE = _descriptor.Descriptor(
   name='ResponseType',
-  full_name='ResponseType',
+  full_name='Hello.ResponseType',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='sentence', full_name='ResponseType.sentence', index=0,
+      name='sentence', full_name='Hello.ResponseType.sentence', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -459,8 +459,8 @@ _RESPONSETYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=547,
-  serialized_end=579,
+  serialized_start=566,
+  serialized_end=598,
 )
 
 _SIMPLETYPE.oneofs_by_name['_bool_flag'].fields.append(
@@ -491,21 +491,21 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 SimpleType = _reflection.GeneratedProtocolMessageType('SimpleType', (_message.Message,), {
   'DESCRIPTOR' : _SIMPLETYPE,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:SimpleType)
+  # @@protoc_insertion_point(class_scope:Hello.SimpleType)
   })
 _sym_db.RegisterMessage(SimpleType)
 
 Enumeration = _reflection.GeneratedProtocolMessageType('Enumeration', (_message.Message,), {
   'DESCRIPTOR' : _ENUMERATION,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:Enumeration)
+  # @@protoc_insertion_point(class_scope:Hello.Enumeration)
   })
 _sym_db.RegisterMessage(Enumeration)
 
 ListType = _reflection.GeneratedProtocolMessageType('ListType', (_message.Message,), {
   'DESCRIPTOR' : _LISTTYPE,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:ListType)
+  # @@protoc_insertion_point(class_scope:Hello.ListType)
   })
 _sym_db.RegisterMessage(ListType)
 
@@ -514,12 +514,12 @@ NestedType = _reflection.GeneratedProtocolMessageType('NestedType', (_message.Me
   'RequestType' : _reflection.GeneratedProtocolMessageType('RequestType', (_message.Message,), {
     'DESCRIPTOR' : _NESTEDTYPE_REQUESTTYPE,
     '__module__' : 'Hello_pb2'
-    # @@protoc_insertion_point(class_scope:NestedType.RequestType)
+    # @@protoc_insertion_point(class_scope:Hello.NestedType.RequestType)
     })
   ,
   'DESCRIPTOR' : _NESTEDTYPE,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:NestedType)
+  # @@protoc_insertion_point(class_scope:Hello.NestedType)
   })
 _sym_db.RegisterMessage(NestedType)
 _sym_db.RegisterMessage(NestedType.RequestType)
@@ -529,19 +529,19 @@ MapType = _reflection.GeneratedProtocolMessageType('MapType', (_message.Message,
   'Map1Entry' : _reflection.GeneratedProtocolMessageType('Map1Entry', (_message.Message,), {
     'DESCRIPTOR' : _MAPTYPE_MAP1ENTRY,
     '__module__' : 'Hello_pb2'
-    # @@protoc_insertion_point(class_scope:MapType.Map1Entry)
+    # @@protoc_insertion_point(class_scope:Hello.MapType.Map1Entry)
     })
   ,
 
   'Map2Entry' : _reflection.GeneratedProtocolMessageType('Map2Entry', (_message.Message,), {
     'DESCRIPTOR' : _MAPTYPE_MAP2ENTRY,
     '__module__' : 'Hello_pb2'
-    # @@protoc_insertion_point(class_scope:MapType.Map2Entry)
+    # @@protoc_insertion_point(class_scope:Hello.MapType.Map2Entry)
     })
   ,
   'DESCRIPTOR' : _MAPTYPE,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:MapType)
+  # @@protoc_insertion_point(class_scope:Hello.MapType)
   })
 _sym_db.RegisterMessage(MapType)
 _sym_db.RegisterMessage(MapType.Map1Entry)
@@ -550,21 +550,21 @@ _sym_db.RegisterMessage(MapType.Map2Entry)
 OneofType = _reflection.GeneratedProtocolMessageType('OneofType', (_message.Message,), {
   'DESCRIPTOR' : _ONEOFTYPE,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:OneofType)
+  # @@protoc_insertion_point(class_scope:Hello.OneofType)
   })
 _sym_db.RegisterMessage(OneofType)
 
 RequestType = _reflection.GeneratedProtocolMessageType('RequestType', (_message.Message,), {
   'DESCRIPTOR' : _REQUESTTYPE,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:RequestType)
+  # @@protoc_insertion_point(class_scope:Hello.RequestType)
   })
 _sym_db.RegisterMessage(RequestType)
 
 ResponseType = _reflection.GeneratedProtocolMessageType('ResponseType', (_message.Message,), {
   'DESCRIPTOR' : _RESPONSETYPE,
   '__module__' : 'Hello_pb2'
-  # @@protoc_insertion_point(class_scope:ResponseType)
+  # @@protoc_insertion_point(class_scope:Hello.ResponseType)
   })
 _sym_db.RegisterMessage(ResponseType)
 
@@ -574,17 +574,17 @@ _MAPTYPE_MAP2ENTRY._options = None
 
 _TEST = _descriptor.ServiceDescriptor(
   name='Test',
-  full_name='Test',
+  full_name='Hello.Test',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=582,
-  serialized_end=1006,
+  serialized_start=601,
+  serialized_end=1145,
   methods=[
   _descriptor.MethodDescriptor(
     name='TypeSimple',
-    full_name='Test.TypeSimple',
+    full_name='Hello.Test.TypeSimple',
     index=0,
     containing_service=None,
     input_type=_SIMPLETYPE,
@@ -594,7 +594,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='TypeEnum',
-    full_name='Test.TypeEnum',
+    full_name='Hello.Test.TypeEnum',
     index=1,
     containing_service=None,
     input_type=_ENUMERATION,
@@ -604,7 +604,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='TypeList',
-    full_name='Test.TypeList',
+    full_name='Hello.Test.TypeList',
     index=2,
     containing_service=None,
     input_type=_LISTTYPE,
@@ -614,7 +614,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='TypeNested',
-    full_name='Test.TypeNested',
+    full_name='Hello.Test.TypeNested',
     index=3,
     containing_service=None,
     input_type=_NESTEDTYPE,
@@ -624,7 +624,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='TypeMap',
-    full_name='Test.TypeMap',
+    full_name='Hello.Test.TypeMap',
     index=4,
     containing_service=None,
     input_type=_MAPTYPE,
@@ -634,7 +634,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='TypeOneof',
-    full_name='Test.TypeOneof',
+    full_name='Hello.Test.TypeOneof',
     index=5,
     containing_service=None,
     input_type=_ONEOFTYPE,
@@ -644,7 +644,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SayHello0',
-    full_name='Test.SayHello0',
+    full_name='Hello.Test.SayHello0',
     index=6,
     containing_service=None,
     input_type=_REQUESTTYPE,
@@ -654,7 +654,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SayHello1',
-    full_name='Test.SayHello1',
+    full_name='Hello.Test.SayHello1',
     index=7,
     containing_service=None,
     input_type=_REQUESTTYPE,
@@ -664,7 +664,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SayHello2',
-    full_name='Test.SayHello2',
+    full_name='Hello.Test.SayHello2',
     index=8,
     containing_service=None,
     input_type=_REQUESTTYPE,
@@ -674,7 +674,7 @@ _TEST = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SayHello3',
-    full_name='Test.SayHello3',
+    full_name='Hello.Test.SayHello3',
     index=9,
     containing_service=None,
     input_type=_REQUESTTYPE,
