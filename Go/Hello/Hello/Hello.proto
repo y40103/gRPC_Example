@@ -1,0 +1,35 @@
+syntax = "proto3";
+option go_package = "Hello/Hello";
+package Hello;
+
+
+
+
+message RequestType {
+    string name = 1;
+    string content = 2;
+}
+
+
+message ResponseType {
+    string sentence = 1;
+}
+
+
+service Test {
+    rpc SayHello0(RequestType) returns (ResponseType) {}  // Unary
+    rpc SayHello1(stream RequestType) returns (ResponseType) {} // Client Streaming
+    rpc SayHello2(RequestType) returns (stream ResponseType) {} // Server Streaming
+    rpc SayHello3(stream RequestType) returns (stream ResponseType) {} // Bi Directional Streaming
+}
+
+
+
+
+
+
+
+
+
+
+
