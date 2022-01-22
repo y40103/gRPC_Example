@@ -3,7 +3,6 @@ syntax = "proto3";
 package Hello;
 
 
-
 // python 觀點 message 可理解成物件 而類型定義 可理解為 該類型屬性
 // message 可理解為定義類型
 // syntax: (Optional) 類型 變數名稱 = 流水號;
@@ -49,6 +48,12 @@ message OneofType {                                 // 只有最後一個賦值�
         int32 num = 2;
     }
 }
+
+
+
+
+
+
 
 
 

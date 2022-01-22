@@ -31,6 +31,11 @@ class TestExample(Hello_pb2_grpc.TestServicer):
         return res
 
 
+    def TypeEnum(self, request, context):
+
+        return request
+
+
     def TypeList(self, request, context) -> Hello_pb2.ListType:
         res = Hello_pb2.ListType()
 

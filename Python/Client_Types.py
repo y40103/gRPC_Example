@@ -17,11 +17,17 @@ def Test_Simple():
     print(res.description,type(res.description))
     print(res.bool_flag,type(res.bool_flag))
 
-
 def Test_Enum():
-    request = Hello_pb2.Enumeration()
-    print(request.pick_one.CHOICE1)
-    print(request.pick_one.Value("CHOICE1"))
+    enum = Hello_pb2.Enumeration()
+    res = CLIENT.TypeEnum(enum)
+    print(res.CHOICE0)
+    print(res.pick_one.CHOICE0)
+    print(res.pick_one.Value("CHOICE0"))
+    # 上三者 相同 key:value
+    print(res.pick_one.Name(1)) ## value:key
+
+
+
 
 
 def Test_List():
