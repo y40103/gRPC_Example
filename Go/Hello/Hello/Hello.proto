@@ -2,6 +2,50 @@ syntax = "proto3";
 option go_package = "Hello/Hello";
 package Hello;
 
+message SimpleType {
+    int32 int_num = 1;
+    float float_num = 2;
+    string descprition = 3;
+    bool bool_flag = 4;
+}
+
+
+message Enumeration{
+
+    enum pick_one {
+        CHOICE0 = 0;   // 枚舉 必須從0開始
+        CHOICE1 = 1;
+        CHOICE2 = 2;
+    }
+
+}
+
+message ListType{
+    repeated int32 int_list = 1;                     // int_list -> 類似 python List[int]
+}
+
+
+
+message NestedType{
+    message RequestType {// 定義類型                  // RequestType.name -> str
+        string name = 1; // 類型 變數名稱 = 流水號;         // RequestType.content -> str
+        string content = 2;
+    }
+}
+
+message MapType {
+    map<string, int32> map1 = 1;                    // map1 -> 類似 python map
+    map<string, int32> map2 = 2;
+}
+
+//message OneofType {                                 // 只有最後一個賦值對象有效 , 只能存在一個
+//    oneof one {
+//        string text = 1;
+//        int32 num = 2;
+//    }
+//}
+
+
 
 
 
@@ -17,6 +61,13 @@ message ResponseType {
 
 
 service Test {
+    rpc TypeSimple(SimpleType) returns (SimpleType) {}
+    rpc TypeEnum(Enumeration) returns(Enumeration) {}
+    rpc TypeList(ListType) returns(ListType){}
+    rpc TypeNested(NestedType.RequestType) returns(NestedType.RequestType){}
+    rpc TypeMap(MapType) returns(MapType){}
+
+
     rpc SayHello0(RequestType) returns (ResponseType) {}  // Unary
     rpc SayHello1(stream RequestType) returns (ResponseType) {} // Client Streaming
     rpc SayHello2(RequestType) returns (stream ResponseType) {} // Server Streaming

@@ -18,6 +18,11 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TestClient interface {
+	TypeSimple(ctx context.Context, in *SimpleType, opts ...grpc.CallOption) (*SimpleType, error)
+	TypeEnum(ctx context.Context, in *Enumeration, opts ...grpc.CallOption) (*Enumeration, error)
+	TypeList(ctx context.Context, in *ListType, opts ...grpc.CallOption) (*ListType, error)
+	TypeNested(ctx context.Context, in *NestedType_RequestType, opts ...grpc.CallOption) (*NestedType_RequestType, error)
+	TypeMap(ctx context.Context, in *MapType, opts ...grpc.CallOption) (*MapType, error)
 	SayHello0(ctx context.Context, in *RequestType, opts ...grpc.CallOption) (*ResponseType, error)
 	SayHello1(ctx context.Context, opts ...grpc.CallOption) (Test_SayHello1Client, error)
 	SayHello2(ctx context.Context, in *RequestType, opts ...grpc.CallOption) (Test_SayHello2Client, error)
@@ -30,6 +35,51 @@ type testClient struct {
 
 func NewTestClient(cc grpc.ClientConnInterface) TestClient {
 	return &testClient{cc}
+}
+
+func (c *testClient) TypeSimple(ctx context.Context, in *SimpleType, opts ...grpc.CallOption) (*SimpleType, error) {
+	out := new(SimpleType)
+	err := c.cc.Invoke(ctx, "/Hello.Test/TypeSimple", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testClient) TypeEnum(ctx context.Context, in *Enumeration, opts ...grpc.CallOption) (*Enumeration, error) {
+	out := new(Enumeration)
+	err := c.cc.Invoke(ctx, "/Hello.Test/TypeEnum", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testClient) TypeList(ctx context.Context, in *ListType, opts ...grpc.CallOption) (*ListType, error) {
+	out := new(ListType)
+	err := c.cc.Invoke(ctx, "/Hello.Test/TypeList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testClient) TypeNested(ctx context.Context, in *NestedType_RequestType, opts ...grpc.CallOption) (*NestedType_RequestType, error) {
+	out := new(NestedType_RequestType)
+	err := c.cc.Invoke(ctx, "/Hello.Test/TypeNested", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testClient) TypeMap(ctx context.Context, in *MapType, opts ...grpc.CallOption) (*MapType, error) {
+	out := new(MapType)
+	err := c.cc.Invoke(ctx, "/Hello.Test/TypeMap", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *testClient) SayHello0(ctx context.Context, in *RequestType, opts ...grpc.CallOption) (*ResponseType, error) {
@@ -142,6 +192,11 @@ func (x *testSayHello3Client) Recv() (*ResponseType, error) {
 // All implementations must embed UnimplementedTestServer
 // for forward compatibility
 type TestServer interface {
+	TypeSimple(context.Context, *SimpleType) (*SimpleType, error)
+	TypeEnum(context.Context, *Enumeration) (*Enumeration, error)
+	TypeList(context.Context, *ListType) (*ListType, error)
+	TypeNested(context.Context, *NestedType_RequestType) (*NestedType_RequestType, error)
+	TypeMap(context.Context, *MapType) (*MapType, error)
 	SayHello0(context.Context, *RequestType) (*ResponseType, error)
 	SayHello1(Test_SayHello1Server) error
 	SayHello2(*RequestType, Test_SayHello2Server) error
@@ -153,6 +208,21 @@ type TestServer interface {
 type UnimplementedTestServer struct {
 }
 
+func (UnimplementedTestServer) TypeSimple(context.Context, *SimpleType) (*SimpleType, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TypeSimple not implemented")
+}
+func (UnimplementedTestServer) TypeEnum(context.Context, *Enumeration) (*Enumeration, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TypeEnum not implemented")
+}
+func (UnimplementedTestServer) TypeList(context.Context, *ListType) (*ListType, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TypeList not implemented")
+}
+func (UnimplementedTestServer) TypeNested(context.Context, *NestedType_RequestType) (*NestedType_RequestType, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TypeNested not implemented")
+}
+func (UnimplementedTestServer) TypeMap(context.Context, *MapType) (*MapType, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TypeMap not implemented")
+}
 func (UnimplementedTestServer) SayHello0(context.Context, *RequestType) (*ResponseType, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello0 not implemented")
 }
@@ -176,6 +246,96 @@ type UnsafeTestServer interface {
 
 func RegisterTestServer(s grpc.ServiceRegistrar, srv TestServer) {
 	s.RegisterService(&Test_ServiceDesc, srv)
+}
+
+func _Test_TypeSimple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SimpleType)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServer).TypeSimple(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Hello.Test/TypeSimple",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServer).TypeSimple(ctx, req.(*SimpleType))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Test_TypeEnum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Enumeration)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServer).TypeEnum(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Hello.Test/TypeEnum",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServer).TypeEnum(ctx, req.(*Enumeration))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Test_TypeList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListType)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServer).TypeList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Hello.Test/TypeList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServer).TypeList(ctx, req.(*ListType))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Test_TypeNested_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NestedType_RequestType)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServer).TypeNested(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Hello.Test/TypeNested",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServer).TypeNested(ctx, req.(*NestedType_RequestType))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Test_TypeMap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapType)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServer).TypeMap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Hello.Test/TypeMap",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServer).TypeMap(ctx, req.(*MapType))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Test_SayHello0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -276,6 +436,26 @@ var Test_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "Hello.Test",
 	HandlerType: (*TestServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "TypeSimple",
+			Handler:    _Test_TypeSimple_Handler,
+		},
+		{
+			MethodName: "TypeEnum",
+			Handler:    _Test_TypeEnum_Handler,
+		},
+		{
+			MethodName: "TypeList",
+			Handler:    _Test_TypeList_Handler,
+		},
+		{
+			MethodName: "TypeNested",
+			Handler:    _Test_TypeNested_Handler,
+		},
+		{
+			MethodName: "TypeMap",
+			Handler:    _Test_TypeMap_Handler,
+		},
 		{
 			MethodName: "SayHello0",
 			Handler:    _Test_SayHello0_Handler,

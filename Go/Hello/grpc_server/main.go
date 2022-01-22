@@ -11,25 +11,71 @@ import (
 )
 
 
-// 流程
-
-// clinet端
-// 1. 建立一個 連線特定host結構體
-// 2. 將 該連線 掛上 Test service 的 stub
-// 3. 開通該連線與stub某函數的接口
-// 4. 利用該接口的方法 , 第一個函數為 context 控制連線開關,
-//    U 第二個函數為 protobuf request類型 ,  直接回傳 protobuf response
-//    CS 輸入若為串流 則無第二個參數 返回 一個 stream類型 , 利用.send()方法把 protobuf reqest多次傳入 , 最後用 .CloseAndRecv 把 protobuf response回傳
-//    SS 第二個函數為 protobuf request類型 , 回傳 stream 類型 用
-
-
-
-
-
 
 type HelloMethod struct {
 	Hello.UnimplementedTestServer
 }
+
+func (self *HelloMethod) TypeSimple(ctx context.Context,request *Hello.SimpleType) (*Hello.SimpleType,error) {
+
+	res := &Hello.SimpleType{}  // 輸入輸出為 結構體
+
+	res.FloatNum = request.FloatNum
+	res.BoolFlag = request.BoolFlag
+	res.Descprition = request.Descprition
+	res.IntNum = request.IntNum
+
+	return res,nil
+
+}
+
+
+
+func (self *HelloMethod) TypeEnum(ctx context.Context,request *Hello.Enumeration) (*Hello.Enumeration,error) {
+
+	fmt.Printf("%v\n",Hello.Enumeration_CHOICE0)
+	fmt.Printf("%v\n",Hello.EnumerationPickOne_name)
+	fmt.Printf("%v\n",Hello.EnumerationPickOne_value)
+	fmt.Printf("%v\n",Hello.EnumerationPickOne(1))
+	fmt.Printf("%v\n",Hello.EnumerationPickOne.Number(0))
+
+	return request,nil
+
+}
+
+func (self *HelloMethod) TypeList(ctx context.Context,request *Hello.ListType) (*Hello.ListType,error) {
+
+	res := &Hello.ListType{}
+	res.IntList = request.IntList
+
+	return res,nil
+
+
+}
+
+
+func (self *HelloMethod) TypeNested(ctx context.Context,request *Hello.NestedType_RequestType) (*Hello.NestedType_RequestType,error) {
+
+	res := &Hello.NestedType_RequestType{}
+	res = request
+
+	return res,nil
+
+
+}
+
+
+func (self *HelloMethod) TypeMap(ctx context.Context,request *Hello.MapType) (*Hello.MapType,error) {
+
+	res := &Hello.MapType{}
+	res = request
+	return res,nil
+}
+
+
+
+
+
 
 func (self *HelloMethod) SayHello0 ( ctx context.Context, request *Hello.RequestType ) ( *Hello.ResponseType,error) {
 	fmt.Printf("SayHello0...\n")
@@ -131,7 +177,15 @@ func (self *HelloMethod) SayHello3(resStream Hello.Test_SayHello3Server) error {
 }
 
 
+// 流程
 
+// clinet端
+// 1. 建立一個 連線特定host結構體
+// 2. 將 該連線 掛上 Test service 的 stub
+// 3. 開通該連線與stub某函數的接口
+// 4. 利用該接口的方法 , 第一個函數為 context 控制連線開關,
+//    U 第二個函數為 protobuf request類型 ,  直接回傳 protobuf response
+//    CS 輸入若為串流 則無第二個參數 返回 一個 stream類型 , 利用.send()方法把 protobuf reqest多次傳入 , 最後用 .CloseAndRecv 把 protobuf response回傳
 
 func main(){
 	fmt.Printf("start gRPC server ... \n")
