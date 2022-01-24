@@ -79,7 +79,7 @@ python Server.py
 
 Golang
 ======
-增加Go基本連線模式測試, 與python架構/功能
+增加Go基本連線模式測試, 與python相同架構/功能
 
 ```bash
 gRPC_Example/
