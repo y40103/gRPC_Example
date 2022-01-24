@@ -23,6 +23,7 @@ type TestClient interface {
 	TypeList(ctx context.Context, in *ListType, opts ...grpc.CallOption) (*ListType, error)
 	TypeNested(ctx context.Context, in *NestedType_RequestType, opts ...grpc.CallOption) (*NestedType_RequestType, error)
 	TypeMap(ctx context.Context, in *MapType, opts ...grpc.CallOption) (*MapType, error)
+	TypeOneof(ctx context.Context, in *OneofType, opts ...grpc.CallOption) (*OneofType, error)
 	SayHello0(ctx context.Context, in *RequestType, opts ...grpc.CallOption) (*ResponseType, error)
 	SayHello1(ctx context.Context, opts ...grpc.CallOption) (Test_SayHello1Client, error)
 	SayHello2(ctx context.Context, in *RequestType, opts ...grpc.CallOption) (Test_SayHello2Client, error)
@@ -76,6 +77,15 @@ func (c *testClient) TypeNested(ctx context.Context, in *NestedType_RequestType,
 func (c *testClient) TypeMap(ctx context.Context, in *MapType, opts ...grpc.CallOption) (*MapType, error) {
 	out := new(MapType)
 	err := c.cc.Invoke(ctx, "/Hello.Test/TypeMap", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testClient) TypeOneof(ctx context.Context, in *OneofType, opts ...grpc.CallOption) (*OneofType, error) {
+	out := new(OneofType)
+	err := c.cc.Invoke(ctx, "/Hello.Test/TypeOneof", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -197,6 +207,7 @@ type TestServer interface {
 	TypeList(context.Context, *ListType) (*ListType, error)
 	TypeNested(context.Context, *NestedType_RequestType) (*NestedType_RequestType, error)
 	TypeMap(context.Context, *MapType) (*MapType, error)
+	TypeOneof(context.Context, *OneofType) (*OneofType, error)
 	SayHello0(context.Context, *RequestType) (*ResponseType, error)
 	SayHello1(Test_SayHello1Server) error
 	SayHello2(*RequestType, Test_SayHello2Server) error
@@ -222,6 +233,9 @@ func (UnimplementedTestServer) TypeNested(context.Context, *NestedType_RequestTy
 }
 func (UnimplementedTestServer) TypeMap(context.Context, *MapType) (*MapType, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TypeMap not implemented")
+}
+func (UnimplementedTestServer) TypeOneof(context.Context, *OneofType) (*OneofType, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TypeOneof not implemented")
 }
 func (UnimplementedTestServer) SayHello0(context.Context, *RequestType) (*ResponseType, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello0 not implemented")
@@ -334,6 +348,24 @@ func _Test_TypeMap_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TestServer).TypeMap(ctx, req.(*MapType))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Test_TypeOneof_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OneofType)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServer).TypeOneof(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Hello.Test/TypeOneof",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServer).TypeOneof(ctx, req.(*OneofType))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -455,6 +487,10 @@ var Test_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TypeMap",
 			Handler:    _Test_TypeMap_Handler,
+		},
+		{
+			MethodName: "TypeOneof",
+			Handler:    _Test_TypeOneof_Handler,
 		},
 		{
 			MethodName: "SayHello0",

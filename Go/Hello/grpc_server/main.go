@@ -75,6 +75,20 @@ func (self *HelloMethod) TypeMap(ctx context.Context,request *Hello.MapType) (*H
 
 
 
+func (self *HelloMethod) TypeOneof(ctx context.Context,request *Hello.OneofType) (*Hello.OneofType,error) {
+
+	res := request
+
+	return res,nil
+
+
+}
+
+
+
+
+
+
 
 
 func (self *HelloMethod) SayHello0 ( ctx context.Context, request *Hello.RequestType ) ( *Hello.ResponseType,error) {
@@ -175,6 +189,9 @@ func (self *HelloMethod) SayHello3(resStream Hello.Test_SayHello3Server) error {
 	return nil
 
 }
+
+
+
 
 
 // 流程

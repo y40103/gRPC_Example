@@ -38,12 +38,12 @@ message MapType {
     map<string, int32> map2 = 2;
 }
 
-//message OneofType {                                 // 只有最後一個賦值對象有效 , 只能存在一個
-//    oneof one {
-//        string text = 1;
-//        int32 num = 2;
-//    }
-//}
+message OneofType {                                 // 只有最後一個賦值對象有效 , 只能存在一個
+    oneof one {
+        string text = 1;
+        int32 num = 2;
+    }
+}
 
 
 
@@ -66,6 +66,7 @@ service Test {
     rpc TypeList(ListType) returns(ListType){}
     rpc TypeNested(NestedType.RequestType) returns(NestedType.RequestType){}
     rpc TypeMap(MapType) returns(MapType){}
+    rpc TypeOneof(OneofType) returns (OneofType){}
 
 
     rpc SayHello0(RequestType) returns (ResponseType) {}  // Unary

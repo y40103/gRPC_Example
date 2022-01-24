@@ -69,7 +69,7 @@ def Test_Map():
     print(type(res.map1))
 
 def Test_Oneof():
-    request = Hello_pb2.OneofType()
+    request = Hello_pb2.OneofType() ## 該類型 實際上等同 type hint 中 Union[int,str]
     request.text = "二"
     request.num = 2   # 這個類型 只能給其中之一賦值 最後一個有效 request 實際只有 num有賦值, text為空
     res = CLIENT.TypeOneof(request)
