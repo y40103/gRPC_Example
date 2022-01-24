@@ -31,7 +31,7 @@ class TestExample(Hello_pb2_grpc.TestServicer):
         return res
 
 
-    def TypeEnum(self, request, context):
+    def TypeEnum(self, request, context) -> Hello_pb2.Enumeration:
 
         return request
 
@@ -63,7 +63,7 @@ class TestExample(Hello_pb2_grpc.TestServicer):
         return res
 
 
-    def TypeOneof(self, request, context):
+    def TypeOneof(self, request, context) -> Hello_pb2.OneofType:
         res = Hello_pb2.OneofType()
         res.text = request.text
         res.num = request.num
